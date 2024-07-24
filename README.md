@@ -67,16 +67,38 @@ Exemple pour le déploiement
 kubectl apply -f deployment.yaml
 ```
 
-Normalement, vous devez avoir le même résultat
-<img width="899" alt="Capture d’écran 2024-07-24 à 02 07 10" src="https://github.com/user-attachments/assets/96b8fb5e-0b25-4688-b0b4-6443e95485fe">
-
 ## 6) Dashboards Grafana
 
-Aller dans Dashboards => New => Import.
+Aller dans ```Dashboards``` => ```New``` => ```Import```.
 
 Vous pouvez mettre l'ID 6417 pour voir les metrics des pods.
 
 <img width="704" alt="Capture d’écran 2024-07-24 à 02 46 15" src="https://github.com/user-attachments/assets/42406de3-da6d-488c-9e76-e8754622afd2">
+
+Avec l'ID 1860 pour l'état des noeuds Kubernetes avec le CPU, la mémoire et les fichiers systèmes :
+
+<img width="1407" alt="Capture d’écran 2024-07-24 à 02 57 32" src="https://github.com/user-attachments/assets/6ab37d0f-8fec-4914-bddb-08891b738786">
+
+Avec l'ID 315 pour les metrics sur l'utilisation des ressources pour chaque pod :
+
+<img width="1381" alt="Capture d’écran 2024-07-24 à 02 55 07" src="https://github.com/user-attachments/assets/49d44446-d01d-43d0-9c3c-99e9ff727036">
+
+
+
+# Troubleshoots
+
+Si vous avez cette erreur pour l'installation de Prometheus, Grafana et AlertManager : 
+
+```
+Error: INSTALLATION FAILED: Kubernetes cluster unreachable: Get "https://127.0.0.1:59845/version": dial tcp 127.0.0.1:59845: connect: connection refused
+```
+
+C'est qu'il n'y a aucun cluster Kubernetes de lancer. Il faut lancer un cluster Kubernetes.
+Pour Minikube, c'est ```minikube start```
+
+
+
+
 
 
 
